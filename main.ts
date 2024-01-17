@@ -1,4 +1,5 @@
 import WindowManager from './WindowManager.js'
+import { Mesh } from './models/Mesh.model.js';
 
 
 
@@ -6,7 +7,7 @@ const t = THREE;
 let camera, scene, renderer, world;
 let near, far;
 let pixR = window.devicePixelRatio ? window.devicePixelRatio : 1;
-let cubes = [];
+let cubes: Mesh[] = [];
 let sceneOffsetTarget = {x: 0, y: 0};
 let sceneOffset = {x: 0, y: 0};
 
@@ -17,9 +18,9 @@ today.setSeconds(0);
 today.setMilliseconds(0);
 let todayAsNumber:number = today.getTime();
 
-let internalTime = getTime();
+
 let windowManager;
-let initialized = false;
+let initialized:boolean = false;
 
 // get time in seconds since beginning of the day (so that all windows use the same time)
 function getTime ()
